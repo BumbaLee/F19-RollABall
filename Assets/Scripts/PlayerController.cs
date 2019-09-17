@@ -24,4 +24,11 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement*speed);
         
     }
+    void OnTriggerEnter(Collider other){
+        if (other.gameObject.CompareTag("Pick Up")){//checks to see if collider is a "pickup"
+            other. gameObject.SetActive(false); // deactivates "pickup" collider, 
+            //eliminates its presence in the game scene
+        }
+    
+    }
 }
