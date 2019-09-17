@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public Text countText; //holds reference to UI text component 
+    public Text winText;
     private Rigidbody rb; //create a variable of type Rigidbody
     private int count; //variable to hold the number of pickups weve collected
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         //object in the game, if there is one. in our case, the player (ball)
         count=0;
         SetCountText(); //initializes countText
+        winText.text=""; //initializes win text to nothing
     }
     void FixedUpdate(){ //called before performing physics calculations, physics code
     //because our ball moves with physics, this code will use fixedupdate() instead of
@@ -40,5 +42,9 @@ public class PlayerController : MonoBehaviour
     }
     void SetCountText (){
          countText.text= "Count: "+count.ToString();
+         if (count>=12){
+             winText.text="You Win!";
+
+         }
     }
 }
